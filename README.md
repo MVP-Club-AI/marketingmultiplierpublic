@@ -1,10 +1,25 @@
-# Marketing Multiplier
+<a id="readme-top"></a>
 
-A complete marketing system that runs on Claude Code. Generate LinkedIn posts, newsletters, blog articles, and community content, all in your brand voice, using simple commands.
+<div align="center">
 
-**You don't need to know how to code to use this.** You need Claude Code installed and the willingness to talk to it. Claude handles the technical work. You bring the ideas, the voice, and the judgment about what's good.
+<h1>Marketing Multiplier</h1>
+
+<p><strong>A complete marketing system powered by Claude Code.</strong><br>
+Generate LinkedIn posts, newsletters, blog articles, and community content<br>in your brand voice, using simple commands.</p>
+
+![Claude Code](https://img.shields.io/badge/Claude_Code-Powered-d97706?style=for-the-badge&logo=anthropic&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-18+-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![React](https://img.shields.io/badge/React-UI-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)
+
+[Getting Started](#getting-started) &middot; [Commands](#available-commands) &middot; [Pipeline](#the-content-pipeline) &middot; [Examples](#what-it-looks-like-in-practice) &middot; [Tips for Non-Coders](#tips-for-non-coders)
+
+</div>
 
 ---
+
+> [!NOTE]
+> **You don't need to know how to code to use this.** You need Claude Code installed and the willingness to talk to it. Claude handles the technical work. You bring the ideas, the voice, and the judgment about what's good.
 
 ## What This System Does
 
@@ -19,37 +34,24 @@ Here's what a typical week looks like:
 
 All content flows through a simple pipeline: **Draft > Review > Approve > Post**. You always have the final say.
 
+<p align="right"><a href="#readme-top">back to top</a></p>
+
 ---
 
 ## What You Need
 
+<table>
+<tr>
+<td width="50%">
+
 ### Claude Code
 
-Claude Code is Anthropic's command-line tool for working with Claude. It runs in your terminal (the text-based interface on your computer). If you haven't used a terminal before, don't worry. You'll learn the basics fast, and Claude itself can help you when you get stuck.
+Claude Code is Anthropic's command-line tool for working with Claude. It runs in your terminal (the text-based interface on your computer).
 
-**Install Claude Code:**
+If you haven't used a terminal before, don't worry. You'll learn the basics fast, and Claude itself can help you when you get stuck.
 
-1. **Install Node.js** (version 18 or newer)
-   - Go to https://nodejs.org and download the LTS version
-   - Run the installer, accept all defaults
-
-2. **Install Claude Code**
-   - Open your terminal:
-     - **Mac:** Open the app called "Terminal" (search for it in Spotlight)
-     - **Windows:** Install [WSL](https://learn.microsoft.com/en-us/windows/wsl/install) first, then open the "Ubuntu" app
-   - Type this and press Enter:
-     ```
-     npm install -g @anthropic-ai/claude-code
-     ```
-
-3. **Authenticate**
-   - In your terminal, type `claude` and press Enter
-   - Follow the prompts to log in with your Anthropic account
-   - You'll need an Anthropic API key (get one at https://console.anthropic.com)
-
-4. **Verify it works**
-   - Type `claude` in your terminal
-   - If you see a prompt where you can type to Claude, you're good
+</td>
+<td width="50%">
 
 ### This Repository
 
@@ -60,10 +62,45 @@ git clone https://github.com/YOUR-ORG/YOUR-REPO.git
 cd YOUR-REPO
 ```
 
-If you're not sure how to do this, open Claude Code and ask:
+Not sure how? Open Claude Code and ask:
 ```
-> Help me clone a GitHub repository to my computer
+> Help me clone a GitHub repository
 ```
+
+</td>
+</tr>
+</table>
+
+<details>
+<summary><strong>Step-by-step Claude Code installation</strong></summary>
+
+<br>
+
+**1. Install Node.js** (version 18 or newer)
+- Go to https://nodejs.org and download the LTS version
+- Run the installer, accept all defaults
+
+**2. Install Claude Code**
+- Open your terminal:
+  - **Mac:** Open the app called "Terminal" (search for it in Spotlight)
+  - **Windows:** Install [WSL](https://learn.microsoft.com/en-us/windows/wsl/install) first, then open the "Ubuntu" app
+- Type this and press Enter:
+  ```
+  npm install -g @anthropic-ai/claude-code
+  ```
+
+**3. Authenticate**
+- In your terminal, type `claude` and press Enter
+- Follow the prompts to log in with your Anthropic account
+- You'll need an Anthropic API key (get one at https://console.anthropic.com)
+
+**4. Verify it works**
+- Type `claude` in your terminal
+- If you see a prompt where you can type to Claude, you're good
+
+</details>
+
+<p align="right"><a href="#readme-top">back to top</a></p>
 
 ---
 
@@ -95,7 +132,8 @@ Claude will walk you through filling in:
 - Your team members' voice profiles
 - Your goals and key links
 
-This updates the config files that teach Claude how to write for you. See `SETUP.md` for the full checklist.
+> [!TIP]
+> See `SETUP.md` for the full configuration checklist. You can also just ask Claude: "Walk me through the setup checklist" and it will guide you through every step.
 
 ### Step 3: Start creating content
 
@@ -107,13 +145,105 @@ Once your brand is configured, try your first command:
 
 Claude will ask you what you want to write about, then generate a post in your brand voice.
 
+<p align="right"><a href="#readme-top">back to top</a></p>
+
+---
+
+## The Content Pipeline
+
+Every piece of content flows through the same stages:
+
+```mermaid
+flowchart LR
+    A["Your Ideas\n/inputs/"] --> B["Claude Drafts\n/to-review/"]
+    B --> C["You Review\n/to-post/"]
+    C --> D["Published\n/posted/"]
+
+    style A fill:#1e3a5f,color:#fff,stroke:#d97706
+    style B fill:#1e3a5f,color:#fff,stroke:#d97706
+    style C fill:#1e3a5f,color:#fff,stroke:#d97706
+    style D fill:#1e3a5f,color:#fff,stroke:#d97706
+```
+
+> [!IMPORTANT]
+> **You always review before anything goes out.** Claude drafts, you decide. Nothing is published automatically unless you set it up that way.
+
+### The folders
+
+| Folder | What's in it | What you do with it |
+|--------|-------------|-------------------|
+| `marketing/inputs/` | Your raw material: ideas, transcripts, brainstorming docs | Drop files here whenever you have something |
+| `marketing/to-review/` | Claude's drafts, organized by channel | Read, give feedback, ask for revisions |
+| `marketing/to-post/` | Approved content ready to publish | Copy-paste to LinkedIn, send newsletter, etc. |
+| `marketing/posted/` | Archive of everything published | Reference for what's worked |
+
+<p align="right"><a href="#readme-top">back to top</a></p>
+
+---
+
+## Available Commands
+
+These are the slash commands you can use in Claude Code. Type them at the prompt.
+
+<table>
+<tr><td>
+
+### Create Content
+
+| Command | What it does |
+|---------|-------------|
+| `/generate-weekly-content` | Draft a full week of LinkedIn posts for all team members |
+| `/linkedin-post` | Create a single LinkedIn post |
+| `/draft-newsletter` | Draft your weekly newsletter |
+| `/blog-post` | Write a blog article |
+| `/process-idea` | Turn a rough idea into polished multi-channel content |
+
+</td><td>
+
+### Repurpose Content
+
+| Command | What it does |
+|---------|-------------|
+| `/process-transcript` | Turn a transcript into posts, articles, and more |
+| `/repurpose-session` | Full session recording into a complete content package |
+
+### Manage Content
+
+| Command | What it does |
+|---------|-------------|
+| `/approve-content` | Move reviewed content to to-post |
+| `/publish-blog` | Push a blog post to your website |
+| `/log-post` | Log a published post to tracking |
+
+</td></tr>
+</table>
+
+<details>
+<summary><strong>Planning and analysis commands</strong></summary>
+
+<br>
+
+| Command | What it does |
+|---------|-------------|
+| `/campaign-brief` | Plan a new marketing campaign |
+| `/dm-outreach` | Generate personalized outreach messages |
+| `/analyze-week` | Review your content performance and get recommendations |
+| `/content-review` | Get Claude's feedback on a piece of content |
+
+</details>
+
+<p align="right"><a href="#readme-top">back to top</a></p>
+
 ---
 
 ## What It Looks Like in Practice
 
-Here are real examples of how you'd interact with the system:
+Here are real examples of how you'd interact with the system.
 
-### Example 1: Generating a LinkedIn post
+<details>
+<summary><strong>Example 1: Generating a LinkedIn post</strong></summary>
+
+<br>
 
 ```
 You:  /linkedin-post
@@ -145,7 +275,12 @@ You:  Perfect. Move it to to-post.
 Claude: [Moves the file to /marketing/to-post/linkedin/founder-1/]
 ```
 
-### Example 2: Turning a meeting transcript into content
+</details>
+
+<details>
+<summary><strong>Example 2: Turning a meeting transcript into content</strong></summary>
+
+<br>
 
 ```
 You:  /process-transcript
@@ -171,7 +306,12 @@ You:  The blog outline looks great. Flesh it out into a full post.
 Claude: [Writes the full blog post and saves it]
 ```
 
-### Example 3: Weekly content generation
+</details>
+
+<details>
+<summary><strong>Example 3: Weekly content generation</strong></summary>
+
+<br>
 
 ```
 You:  /generate-weekly-content This week let's focus on
@@ -194,73 +334,9 @@ Claude: [Generates 3-5 LinkedIn posts per founder for the week,
         ...
 ```
 
----
+</details>
 
-## The Content Pipeline
-
-Every piece of content flows through the same stages:
-
-```
- YOUR IDEAS          CLAUDE DRAFTS         YOU REVIEW          YOU PUBLISH
- ──────────    ->    ──────────────   ->   ──────────    ->    ───────────
- /inputs/            /to-review/            /to-post/           /posted/
-
- Drop ideas,         Claude generates       You approve,        Content is
- transcripts,        content using your     edit, or ask        published and
- brainstorming       brand voice and        Claude to revise    archived here
- docs here           content pillars
-```
-
-**You always review before anything goes out.** Claude drafts, you decide.
-
-### The folders
-
-| Folder | What's in it | What you do with it |
-|--------|-------------|-------------------|
-| `marketing/inputs/` | Your raw material: ideas, transcripts, brainstorming docs | Drop files here whenever you have something |
-| `marketing/to-review/` | Claude's drafts, organized by channel | Read, give feedback, ask for revisions |
-| `marketing/to-post/` | Approved content ready to publish | Copy-paste to LinkedIn, send newsletter, etc. |
-| `marketing/posted/` | Archive of everything published | Reference for what's worked |
-
----
-
-## Available Commands
-
-These are the slash commands you can use in Claude Code. Type them at the prompt.
-
-### Create Content
-
-| Command | What it does |
-|---------|-------------|
-| `/generate-weekly-content` | Draft a full week of LinkedIn posts for all team members |
-| `/linkedin-post` | Create a single LinkedIn post |
-| `/draft-newsletter` | Draft your weekly newsletter |
-| `/blog-post` | Write a blog article |
-| `/process-idea` | Turn a rough idea into polished multi-channel content |
-
-### Repurpose Content
-
-| Command | What it does |
-|---------|-------------|
-| `/process-transcript` | Turn a meeting/podcast transcript into posts, articles, and more |
-| `/repurpose-session` | Convert a full session recording into a complete content package |
-
-### Manage Content
-
-| Command | What it does |
-|---------|-------------|
-| `/approve-content` | Move reviewed content from to-review to to-post |
-| `/publish-blog` | Push an approved blog post to your website |
-| `/log-post` | Log a published post to your content tracking |
-
-### Plan and Analyze
-
-| Command | What it does |
-|---------|-------------|
-| `/campaign-brief` | Plan a new marketing campaign |
-| `/dm-outreach` | Generate personalized outreach messages |
-| `/analyze-week` | Review your content performance and get recommendations |
-| `/content-review` | Get Claude's feedback on a piece of content |
+<p align="right"><a href="#readme-top">back to top</a></p>
 
 ---
 
@@ -268,27 +344,39 @@ These are the slash commands you can use in Claude Code. Type them at the prompt
 
 This system includes a web-based interface you can run locally. It gives you a visual dashboard for chatting with Claude and seeing your content pipeline at a glance.
 
-**To start it:**
+<table>
+<tr>
+<td width="50%">
+
+**To start it, ask Claude:**
 ```
 > Help me start the Marketing UI
 ```
 
 Or manually:
 ```bash
-cd ui
-npm install
-npm run dev
+cd ui && npm install && npm run dev
 ```
 
-Then open http://localhost:4000 in your browser.
+Then open http://localhost:4000
 
-The UI includes:
-- **Chat tab:** Talk to Claude with all your brand context loaded
-- **Pipeline tab:** See all content in to-review, to-post, and posted stages
-- **Calendar tab:** Plan and track what's going out when
-- **Newsletter tab:** Newsletter-specific workflow
+</td>
+<td width="50%">
 
-The UI is optional. Everything it does, you can also do directly in Claude Code through the terminal.
+**The UI includes:**
+- **Chat tab** - Talk to Claude with brand context loaded
+- **Pipeline tab** - See content across all stages
+- **Calendar tab** - Plan and track what's going out when
+- **Newsletter tab** - Newsletter-specific workflow
+
+</td>
+</tr>
+</table>
+
+> [!TIP]
+> The UI is optional. Everything it does, you can also do directly in Claude Code through the terminal.
+
+<p align="right"><a href="#readme-top">back to top</a></p>
 
 ---
 
@@ -296,26 +384,46 @@ The UI is optional. Everything it does, you can also do directly in Claude Code 
 
 This system is designed to grow with you. Here's how it evolves:
 
-### Week 1: Get it running
+```mermaid
+gantt
+    title Your Journey
+    dateFormat X
+    axisFormat %s
+
+    section Getting Started
+    Set up brand basics           :a1, 0, 1
+    First content batch           :a2, 1, 2
+
+    section Finding Your Voice
+    Refine voice through feedback :a3, 2, 5
+    Update founder skills         :a4, 3, 5
+
+    section Expanding
+    New pillars and commands      :a5, 5, 8
+    Blog and newsletter automation:a6, 6, 8
+    Add team members              :a7, 7, 8
+```
+
+**Week 1: Get it running**
 - Fill in your brand basics (company name, what you do, your voice)
 - Generate your first batch of content
 - Get comfortable with the review-and-revise loop
 
-### Week 2-4: Refine your voice
-- The first drafts won't be perfect. That's expected.
+**Weeks 2-4: Refine your voice**
+- The first drafts won't be perfect. That's expected
 - Every time you give Claude feedback ("too formal," "I'd never say it that way," "more concrete examples"), it gets better within that session
-- Update your founder voice skills (`.claude/skills/`) with what you learn about what sounds right
+- Update your founder voice skills (`.claude/skills/`) with what you learn
 
-### Month 2+: Expand and automate
+**Month 2+: Expand and automate**
 - Add new content pillars as your strategy evolves
 - Set up blog publishing to push directly to your website
 - Configure newsletter sending via Gmail API
 - Add new team members by duplicating the founder skill template
 - Create custom commands for workflows specific to your business
 
-### Ongoing: Let Claude help you improve the system
+### Let Claude improve the system itself
 
-One of the most powerful things about this setup: **you can ask Claude to improve the system itself.** For example:
+One of the most powerful things about this setup: **you can ask Claude to improve the system itself.**
 
 ```
 > The LinkedIn posts are too long. Update the linkedin-post command
@@ -330,13 +438,15 @@ One of the most powerful things about this setup: **you can ask Claude to improv
 
 Claude can edit its own config files, create new commands, and extend the system. You describe what you want, Claude builds it.
 
+<p align="right"><a href="#readme-top">back to top</a></p>
+
 ---
 
 ## How It's Organized
 
 ```
 your-marketing-repo/
-├── CLAUDE.md                    # The brain: tells Claude everything about your brand and system
+├── CLAUDE.md                    # The brain: your brand, pipeline, and rules
 ├── SETUP.md                     # Step-by-step setup checklist
 ├── README.md                    # This file
 │
@@ -353,12 +463,15 @@ your-marketing-repo/
 │   ├── templates/               # Reusable templates (newsletter HTML, etc.)
 │   └── campaigns/               # Campaign planning
 │
-├── scripts/                     # Utility scripts (newsletter sending, blog publishing, etc.)
+├── scripts/                     # Utility scripts (newsletter, blog publishing)
 ├── ui/                          # Optional web interface
 └── docs/                        # Strategy docs and reference material
 ```
 
-The most important file is `CLAUDE.md`. It's the instruction manual that teaches Claude about your brand, your pipeline, your workflow, and your rules. When you want to change how the system works, that's usually where you start.
+> [!NOTE]
+> The most important file is `CLAUDE.md`. It's the instruction manual that teaches Claude about your brand, your pipeline, your workflow, and your rules. When you want to change how the system works, that's usually where you start.
+
+<p align="right"><a href="#readme-top">back to top</a></p>
 
 ---
 
@@ -366,19 +479,39 @@ The most important file is `CLAUDE.md`. It's the instruction manual that teaches
 
 **You don't need to understand the code.** But here are some things that help:
 
-1. **Talk to Claude like a person.** "Make this more casual" works better than trying to use technical language you're not comfortable with.
+<table>
+<tr>
+<td width="50%">
 
-2. **Ask Claude to explain things.** If you see a file you don't understand, ask: "What does this file do and should I change anything in it?"
+**1. Talk to Claude like a person**<br>
+"Make this more casual" works better than trying to use technical language you're not comfortable with.
 
-3. **Don't be afraid to try things.** Git (the version control system) means you can always undo. If something breaks, tell Claude: "Something went wrong, help me fix it."
+**2. Ask Claude to explain things**<br>
+If you see a file you don't understand, ask: "What does this file do and should I change anything in it?"
 
-4. **The terminal is just a text conversation.** You type, the computer responds. Claude Code makes it a conversation with an AI that can also read and edit files.
+**3. Don't be afraid to try things**<br>
+Git means you can always undo. If something breaks, tell Claude: "Something went wrong, help me fix it."
 
-5. **Start simple.** Use `/linkedin-post` a few times before trying the full weekly workflow. Get comfortable with the rhythm.
+**4. The terminal is just a text conversation**<br>
+You type, the computer responds. Claude Code makes it a conversation with an AI that can also read and edit files.
 
-6. **Your feedback makes it better.** Every time you say "that doesn't sound like me" and explain why, you're training the system. Update your voice profiles with what you learn.
+</td>
+<td width="50%">
 
-7. **Ask Claude to do the technical parts.** Need to set up the newsletter sender? Tell Claude: "Help me set up the newsletter sending script." Claude will walk you through it step by step.
+**5. Start simple**<br>
+Use `/linkedin-post` a few times before trying the full weekly workflow. Get comfortable with the rhythm.
+
+**6. Your feedback makes it better**<br>
+Every time you say "that doesn't sound like me" and explain why, you're training the system. Update your voice profiles with what you learn.
+
+**7. Ask Claude to do the technical parts**<br>
+Need to set up the newsletter sender? Tell Claude: "Help me set up the newsletter sending script." It will walk you through it step by step.
+
+</td>
+</tr>
+</table>
+
+<p align="right"><a href="#readme-top">back to top</a></p>
 
 ---
 
@@ -395,8 +528,13 @@ Inside Claude Code, you can always ask:
 
 Claude has full context on this system. It's read the CLAUDE.md, the commands, the skills, and all the docs. Ask it anything about how things work.
 
-For issues with Claude Code itself, see the [Claude Code documentation](https://docs.anthropic.com/en/docs/claude-code).
+> [!TIP]
+> For issues with Claude Code itself, see the [Claude Code documentation](https://docs.anthropic.com/en/docs/claude-code).
 
 ---
 
+<div align="center">
+
 *Built with Claude Code. The system practices what it preaches: using AI to multiply what you're capable of.*
+
+</div>
