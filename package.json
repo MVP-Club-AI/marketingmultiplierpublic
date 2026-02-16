@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "mammoth": "^1.11.0"
+  },
+  "dependencies": {
+    "googleapis": "^170.1.0",
+    "puppeteer": "^24.36.0"
+  }
+}

@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Zilla+Slab:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      color: #081f3f;
+      background-color: #faf5f0;
+      margin: 0;
+      padding: 40px 20px;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(8, 31, 63, 0.08);
+    }
+
+    /* Header */
+    .header {
+      background: linear-gradient(135deg, #15465b 0%, #081f3f 100%);
+      color: #ffffff;
+      padding: 32px;
+      text-align: center;
+    }
+    .header h1 {
+      font-family: 'Zilla Slab', Georgia, serif;
+      font-weight: 400;
+      font-size: 26px;
+      margin: 0 0 6px 0;
+    }
+    .header .date {
+      font-size: 14px;
+      opacity: 0.85;
+      margin: 0;
+    }
+
+    /* Content area */
+    .content {
+      padding: 32px;
+    }
+
+    /* Founder Reflection - the lead section */
+    .reflection {
+      background: #faf5f0;
+      border-radius: 8px;
+      padding: 24px;
+      margin-bottom: 28px;
+      border-left: 4px solid #d97706;
+    }
+    .reflection-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    .reflection-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #081f3f;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 18px;
+      margin-right: 14px;
+    }
+    .reflection-meta {
+      flex: 1;
+    }
+    .reflection-name {
+      font-weight: 600;
+      color: #081f3f;
+      margin: 0;
+      font-size: 16px;
+    }
+    .reflection-label {
+      font-size: 13px;
+      color: #15465b;
+      margin: 2px 0 0 0;
+    }
+    .reflection p {
+      margin: 0 0 12px 0;
+      color: #081f3f;
+    }
+    .reflection p:last-of-type {
+      margin-bottom: 0;
+    }
+
+    /* Section headers */
+    h2 {
+      font-family: 'Zilla Slab', Georgia, serif;
+      font-weight: 400;
+      font-size: 20px;
+      color: #081f3f;
+      margin: 32px 0 16px 0;
+      padding-bottom: 6px;
+      border-bottom: 2px solid #d97706;
+      display: inline-block;
+    }
+    h2:first-of-type {
+      margin-top: 0;
+    }
+
+    /* Lists */
+    ul {
+      margin: 14px 0;
+      padding-left: 0;
+      list-style: none;
+    }
+    li {
+      margin: 10px 0;
+      padding-left: 20px;
+      position: relative;
+    }
+    li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 8px;
+      height: 8px;
+      background: #d97706;
+      border-radius: 50%;
+    }
+
+    /* Community section - wins/learnings */
+    .community-highlight {
+      background: linear-gradient(135deg, #15465b 0%, #081f3f 100%);
+      color: #ffffff;
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin: 20px 0;
+    }
+    .community-highlight h3 {
+      font-family: 'Zilla Slab', Georgia, serif;
+      font-weight: 400;
+      font-size: 18px;
+      color: #eba714;
+      margin: 0 0 12px 0;
+    }
+    .community-highlight p {
+      margin: 8px 0;
+      font-size: 15px;
+      opacity: 0.95;
+    }
+    .community-highlight ul {
+      margin: 12px 0 0 0;
+    }
+    .community-highlight li::before {
+      background: #d97706;
+      top: 7px;
+    }
+
+    /* Content cards - for videos/posts */
+    .content-card {
+      background: #faf5f0;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 12px 0;
+    }
+    .content-card-title {
+      font-weight: 600;
+      color: #081f3f;
+      margin: 0 0 6px 0;
+      font-size: 15px;
+    }
+    .content-card-meta {
+      font-size: 13px;
+      color: #15465b;
+      margin: 0;
+    }
+    .content-card a {
+      color: #d97706;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .content-card a:hover {
+      text-decoration: underline;
+    }
+
+    /* Links section */
+    .links-list {
+      margin: 16px 0;
+    }
+    .link-item {
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(8, 31, 63, 0.1);
+    }
+    .link-item:last-child {
+      border-bottom: none;
+    }
+    .link-item a {
+      color: #081f3f;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+    }
+    .link-item a:hover {
+      color: #d97706;
+    }
+    .link-item .source {
+      font-size: 13px;
+      color: #15465b;
+      margin-top: 4px;
+    }
+
+    /* Upcoming events */
+    .upcoming-box {
+      background: #081f3f;
+      color: #ffffff;
+      border-radius: 8px;
+      padding: 24px;
+      margin: 24px 0;
+    }
+    .upcoming-box h3 {
+      font-family: 'Zilla Slab', Georgia, serif;
+      font-weight: 400;
+      font-size: 20px;
+      color: #eba714;
+      margin: 0 0 16px 0;
+    }
+    .event-row {
+      display: flex;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+      font-size: 15px;
+    }
+    .event-row:last-child {
+      border-bottom: none;
+    }
+    .event-date {
+      font-weight: 600;
+      color: #d97706;
+      min-width: 90px;
+    }
+    .event-title {
+      flex: 1;
+      opacity: 0.95;
+    }
+
+    /* CTA */
+    .cta-section {
+      text-align: center;
+      padding: 24px 0;
+      margin-top: 8px;
+    }
+    .cta-section p {
+      margin: 0 0 16px 0;
+      color: #15465b;
+      font-size: 16px;
+    }
+    .cta-button {
+      display: inline-block;
+      background: #d97706;
+      color: #ffffff !important;
+      text-decoration: none;
+      padding: 14px 32px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 16px;
+    }
+
+    /* Signature */
+    .signature {
+      margin-top: 28px;
+      font-size: 15px;
+      color: #15465b;
+    }
+
+    /* Footer */
+    .footer {
+      background: #081f3f;
+      color: rgba(255,255,255,0.7);
+      text-align: center;
+      padding: 20px;
+      font-size: 13px;
+    }
+    .footer a {
+      color: #eba714;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="header">
+    <h1>This Week at [Your Company]</h1>
+    <p class="date">Week of [DATE]</p>
+  </div>
+
+  <div class="content">
+
+    <!-- FOUNDER REFLECTION - The lead, highest value -->
+    <div class="reflection">
+      <div class="reflection-header">
+        <div class="reflection-avatar">[X]</div>
+        <div class="reflection-meta">
+          <p class="reflection-name">[Founder Name]</p>
+          <p class="reflection-label">This week's reflection</p>
+        </div>
+      </div>
+      <p>[REFLECTION PARAGRAPH 1: What's on your mind this week? A realization, an observation, something you're thinking about. This is the human insight that makes people want to read the email.]</p>
+      <p>[REFLECTION PARAGRAPH 2: The "so what" — what does this mean for how we practice, what we're building, or where things are heading? End with energy, not a conclusion.]</p>
+    </div>
+
+    <!-- THIS WEEK IN THE COMMUNITY -->
+    <h2>This Week in the Community</h2>
+
+    <p>[Brief 1-2 sentence intro about the week's energy/theme]</p>
+
+    <div class="community-highlight">
+      <h3>What We Did</h3>
+      <ul>
+        <li>[Session name] — [Brief description of what happened]</li>
+        <li>[Session name] — [Brief description of what happened]</li>
+      </ul>
+    </div>
+
+    <p><strong>Wins:</strong> [What went well — a breakthrough someone had, a project completed, a good conversation]</p>
+
+    <p><strong>Learning:</strong> [What we're figuring out — could be a challenge, an experiment, something we're iterating on]</p>
+
+    <!-- NEW CONTENT THIS WEEK -->
+    <h2>New This Week</h2>
+
+    <div class="content-card">
+      <p class="content-card-title">[Video/Recording Title]</p>
+      <p class="content-card-meta">[Brief description] &bull; <a href="[YOUTUBE_LINK]">Watch on YouTube</a></p>
+    </div>
+
+    <div class="content-card">
+      <p class="content-card-title">[Video/Recording Title]</p>
+      <p class="content-card-meta">[Brief description] &bull; <a href="[YOUTUBE_LINK]">Watch on YouTube</a></p>
+    </div>
+
+    <!-- BLOG & LINKEDIN -->
+    <h2>From the Blog & LinkedIn</h2>
+
+    <div class="links-list">
+      <div class="link-item">
+        <a href="[BLOG_POST_URL]">[Blog Post Title]</a>
+        <p class="source">Blog &bull; by [Author]</p>
+      </div>
+      <div class="link-item">
+        <a href="[LINKEDIN_POST_URL]">[LinkedIn Post Hook/Title]</a>
+        <p class="source">LinkedIn &bull; [Author]</p>
+      </div>
+      <div class="link-item">
+        <a href="[LINKEDIN_POST_URL]">[LinkedIn Post Hook/Title]</a>
+        <p class="source">LinkedIn &bull; [Author]</p>
+      </div>
+    </div>
+
+    <!-- WHAT'S COMING UP -->
+    <div class="upcoming-box">
+      <h3>Coming Up This Week</h3>
+      <div class="event-row">
+        <span class="event-date">[Day M/DD]</span>
+        <span class="event-title">[Event Name] — [Time] [TZ]</span>
+      </div>
+      <div class="event-row">
+        <span class="event-date">[Day M/DD]</span>
+        <span class="event-title">[Event Name] — [Time] [TZ]</span>
+      </div>
+      <div class="event-row">
+        <span class="event-date">[Day M/DD]</span>
+        <span class="event-title">[Event Name] — [Time] [TZ]</span>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-section">
+      <p>Not in the community yet?</p>
+      <a href="[COMMUNITY_URL]" class="cta-button">Join [Your Company]</a>
+    </div>
+
+    <p class="signature">See you in there,<br><strong>[Founder Names]</strong></p>
+
+  </div>
+
+  <div class="footer">
+    <p>[Your Company] | [Your tagline]<br>
+    Questions? Just reply to this email.</p>
+  </div>
+
+</div>
+
+</body>
+</html>

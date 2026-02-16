@@ -1,0 +1,15 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Session data (per-user)
+data/sessions.json
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db

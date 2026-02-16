@@ -1,0 +1,22 @@
+name: Scheduled Blog Publish
+
+on:
+  # Update cron and jobs when scheduling new blog posts
+  # schedule:
+  #   - cron: '0 8 16 2 *'
+  workflow_dispatch:  # Allow manual trigger for testing
+
+permissions:
+  contents: write
+
+jobs:
+  # No posts currently scheduled.
+  # To schedule a new post, add a job here following the pattern in git history.
+  # Remember: file paths are relative to the checkout path.
+  # Marketing repo checks out to 'marketing/', website repo to 'website/'
+  # So blog files are at: marketing/marketing/to-post/blog/FILENAME
+  placeholder:
+    runs-on: ubuntu-latest
+    if: false  # This job never runs; it's here to keep the workflow valid
+    steps:
+      - run: echo "No posts scheduled"
